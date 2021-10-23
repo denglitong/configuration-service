@@ -1,14 +1,17 @@
 example.property: "I AM A DEV PROPERTY OVERRIDE"
 spring.jpa.database: "POSTGRESQL"
-spring.datasource.platform:  "postgres"
-spring.jpa.show-sql: "false"
+spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
+spring.jpa.show-sql: "true"
+spring.datasource.platform: "postgres"
 spring.database.driverClassName: "org.postgresql.Driver"
 spring.datasource.url: "jdbc:postgresql://database:5432/eagle_eye_dev"
 spring.datasource.username: "postgres_dev"
 spring.datasource.password: "{cipher}ad1c069bf9baa285f2df6983e9c1f7d49a53d3661effa8f30df4913e2c711a27"
 spring.datasource.testWhileIdle: "true"
 spring.datasource.validationQuery: "SELECT 1"
-spring.jpa.properties.hibernate.dialect: "org.hibernate.dialect.PostgreSQLDialect"
+spring.jpa.hibernate.ddl-auto: none
+spring.datasource.initialization-mode: always
+spring.datasource.data: classpath:schema.sql
 redis.server: "redis"
 redis.port: "6379"
 signing.key: "345345fsdfsf5345"
