@@ -1,0 +1,26 @@
+server:
+  port: 8888 # configuration-service 监听的端口
+spring:
+  profiles:
+    active: git # 用于存储配置的后端存储库
+  cloud:
+    config:
+      server:
+        native:
+          # 配置文件使用本地文件系统-类路径下的目录
+          search-locations: classpath:config/licensingservice
+        encrypt:
+          enabled: false
+        git:
+          # 配置文件使用Git远程托管仓库
+          uri: https://github.com/denglitong/config-repo.git
+          default-label: main
+          search-paths: licensingservice,organizationservice
+          clone-on-start: true
+          skip-ssl-validation: true
+          timeout: 10
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

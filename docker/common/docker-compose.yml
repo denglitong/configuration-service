@@ -1,0 +1,8 @@
+version: '2'
+services:
+  configurationservice:
+    image: denglitong/configuration-service:chapter3
+    ports:
+      - "8888:8888"
+    environment:
+      ENCRYPT_KEY: "IMSYMMETRIC"
