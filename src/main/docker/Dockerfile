@@ -1,6 +1,7 @@
 FROM openjdk:8-jdk-alpine
-RUN apk update && apk upgrade && apk add netcat-openbsd && apk add wget \
-    && apk add bind-tools
+RUN apk update && apk upgrade && apk add netcat-openbsd && apk add wget
+# 使用Eureka服务发现之后可无需bind-tools
+#&& apk add bind-tools
 RUN mkdir -p /usr/local/configuration-service
 RUN echo $JAVA_HOME
 RUN wget --no-check-certificate --no-cookies \
